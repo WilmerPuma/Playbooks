@@ -1,0 +1,19 @@
+## Crear un playbook que corra sobre el grupo test:
+---
+- hosts: test
+  become: true
+  become_user: root
+
+######
+  task: 
+      -name: Cear Usuario student
+       user:
+            name: student6
+            uid: 4545
+            satate: present
+
+######
+  task: 
+      -name: instalar httpd
+       dnf:
+          name: httpd  
