@@ -2,7 +2,8 @@
 - name: Deber
   hosts: test
   become: true
-  task: 
+  tasks: 
+  
   - name: Cear Usuario student
     user:
       name: student6
