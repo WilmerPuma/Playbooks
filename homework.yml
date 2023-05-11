@@ -1,4 +1,3 @@
-## Crear un playbook que corra sobre el grupo test:
 ---
 - hosts: test
   become: true
