@@ -1,6 +1,6 @@
 ---
 - name: Deber
-  hosts: test
+  hosts: node1
   become: true
   tasks: 
   
