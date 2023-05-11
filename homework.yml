@@ -1,18 +1,16 @@
 ---
-- hosts: test
+- name: Deber
+  hosts: test
   become: true
-  become_user: root
-
-######
   task: 
-      -name: Cear Usuario student
-       user:
-            name: student6
-            uid: 4545
-            satate: present
+  - name: Cear Usuario student
+    user:
+      name: student6
+      uid: 4545
+      state: present
+      
+  - name: Imprimir
+    debug:
+      msg: "Hola Mundo"
 
-######
-  task: 
-      -name: instalar httpd
-       dnf:
-          name: httpd  
+
