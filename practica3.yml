@@ -1,7 +1,6 @@
 ---
 - name: Correct the mistakes
   hosts: all
-  gather_facts: no
   become: yes
   
   tasks:
