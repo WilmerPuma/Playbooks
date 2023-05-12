@@ -21,7 +21,7 @@
     copy:
       src: /mytest
       dest: /myplaybook
-  - name: Print Red Hat distribution
+  - name: Inprimir distribucion Red Hat
     debug:
       msg: "Distribution ansible is red hat"
       when: ansible_distribution == "RedHat"
