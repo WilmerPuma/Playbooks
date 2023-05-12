@@ -1,18 +1,45 @@
 ---
-- name: Deber
-  hosts: node1
-  become: true
+- name: Trabajo1
+  hosts: test
+  become: yes
   tasks: 
-  
   - name: Cear Usuario student
     user:
-      name: student6
-      uid: 4545
-      state: present
-      
-  - name: Imprimir
+      name: student
+      owner: student
+      group: student
+      mode: 644
+  - name: Crear directory myplaybook
+    file:
+      state: directory
+      path: /home/
+  - name: Crear Archivo mytest
+    file:
+      state: file
+      path: /home/
+  - name: Copiar archivo en el directorio myplaybook
+    copy:
+      src: /mytest
+      dest: /myplaybook
+  - name: Print Red Hat distribution
     debug:
-      msg: "Hola Mundo"
-     
+      msg: "Distribution ansible is red hat"
+      when: ansible_distribution == "RedHat"
+    #####
+  - name: Instalar Apache
+    yum:
+      name: httpd
+      state: latest
+  - name: Habilitar e iniciar apache
+    service:
+      name: httpd
+      enabled: true
+      state: started
+  - name: Permitir el servicio http en el firewall
+    systemd:
+      port: 80
+      permanent: yes
+      immediate: yes
+      state: enable    
 
 
