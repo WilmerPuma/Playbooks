@@ -8,7 +8,7 @@
   - name: Create user student_new
     ansible.builtin.user:
        name: student_new
-      state: present
+       state: present
     
   - name: latest Apache version installed
     yum:
@@ -16,7 +16,7 @@
       state: ultimo
       
   - name: Apache enabled and running
-     service:
+    service:
       name: httpd
       enabled: true
       state: started
@@ -29,7 +29,7 @@
   - name: print rhel version
     debug:
       msg: "The distribution of this server is RED HAT 8.7"
-     when: ansible_facts.distribution = "REDHAT" and ansible_facts.distribution-version = "8.7"
+      when: ansible_facts.distribution = "REDHAT" and ansible_facts.distribution-version = "8.7"
     
   - name: Create template with user input from survey
     template:
