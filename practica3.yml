@@ -5,7 +5,6 @@
   
   tasks:
   - name: Create user student_new
-    ansible.builtin.user:
        name: student_new
        state: present
     
