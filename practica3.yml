@@ -1,6 +1,6 @@
 ---
 - name: Correct the mistakes
-  hosts: all
+  hosts: test2
   become: yes
   
   tasks:
@@ -11,7 +11,7 @@
   - name: latest Apache version installed
     yum:
       name: httpd
-      state: ultimo
+      state: latest
       
   - name: Apache enabled and running
     service:
@@ -27,7 +27,7 @@
   - name: print rhel version
     debug:
       msg: "The distribution of this server is RED HAT 8.7"
-      when: ansible_facts.distribution = "REDHAT" and ansible_facts.distribution-version = "8.7"
+      when: ansible_facts.distribution
     
   - name: Create template with user input from survey
     template:
